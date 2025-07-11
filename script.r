@@ -17,9 +17,9 @@
 #
 # LAST UPDATE: 25/04/2018
 #
-# VERSION: 1.2.1
+# VERSION: 2.0.0
 #
-# R VERSION TESTED: 3.4.1
+# R VERSION TESTED: 4.5.1, 4.4.x, 4.3.x
 # 
 # AUTHOR: pbicvsupport@microsoft.com
 #
@@ -256,9 +256,12 @@ libraryRequireInstall = function(packageName, ...)
 libraryRequireInstall("scales")
 libraryRequireInstall("forecast")
 libraryRequireInstall("zoo")
-libraryRequireInstall("ggplot2");
+libraryRequireInstall("ggplot2")
 libraryRequireInstall("plotly")
 libraryRequireInstall("caTools")
+libraryRequireInstall("reshape2")
+libraryRequireInstall("htmlwidgets")
+libraryRequireInstall("XML")
 
 ###############Internal parameters definitions#################
 

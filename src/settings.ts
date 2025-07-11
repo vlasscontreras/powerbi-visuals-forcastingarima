@@ -24,79 +24,85 @@
  *  THE SOFTWARE.
  */
 
-module powerbi.extensibility.visual {
-  "use strict";
+import powerbi from "powerbi-visuals-api";
+import DataView = powerbi.DataView;
 
-  import DataViewObjectsParser = powerbi.extensibility.utils.dataview.DataViewObjectsParser;
+export function inMinMax(a: number, mi: number, ma: number) {
+  if (a < mi)
+    return mi;
+  if (a > ma)
+    return ma;
+  return a;
+}
 
+export class VisualSettings {
+  public settings_forecastPlot_params: SettingsForecastPlotParams = new SettingsForecastPlotParams();
+  public settings_seasonality_params: SettingsSeasonalityParams = new SettingsSeasonalityParams();
+  public settings_model_params: SettingModelParams = new SettingModelParams();
+  public settings_userModel_params: SettingsUserModelParams = new SettingsUserModelParams();
+  public settings_graph_params: SettingsGraphParams = new SettingsGraphParams();
+  public settings_additional_params: SettingsAdditionalParams = new SettingsAdditionalParams();
+  public settings_export_params: SettingsExportParams = new SettingsExportParams();
 
-  export function inMinMax(a: number, mi: number, ma: number) {
-    if (a < mi)
-      return mi;
-    if (a > ma)
-      return ma;
-    return a;
+  public static parse(dataView: DataView): VisualSettings {
+    const settings = new VisualSettings();
+    // Add parsing logic here if needed
+    return settings;
   }
+}
 
-  export class VisualSettings extends DataViewObjectsParser {
-    public settings_forecastPlot_params: SettingsForecastPlotParams = new SettingsForecastPlotParams();
-    public settings_seasonality_params: SettingsSeasonalityParams = new SettingsSeasonalityParams();
-    public settings_model_params: SettingModelParams = new SettingModelParams();
-    public settings_userModel_params: SettingsUserModelParams = new SettingsUserModelParams();
-    public settings_graph_params: SettingsGraphParams = new SettingsGraphParams();
-    public settings_additional_params: SettingsAdditionalParams = new SettingsAdditionalParams();
-    public settings_export_params: SettingsExportParams = new SettingsExportParams();
+export class SettingsForecastPlotParams {
+  public forecastLength: number = 10;
+  public confInterval1: string = "0.85";
+  public confInterval2: string = "0.95";
+}
 
-  }
+export class SettingsSeasonalityParams {
+  public show: boolean = true;
+  public targetSeason: string = "automatic";
+  public knownFrequency: number = 12;
+}
 
-  export class SettingsForecastPlotParams {
-    public forecastLength: number = 10;
-    public confInterval1: string = "0.85";
-    public confInterval2: string = "0.95";
+export class SettingModelParams {
+  public maxp: string = "3";
+  public maxq: string = "3";
+  public maxP: string = "2";
+  public maxQ: string = "2";
+  public maxd: string = "2";
+  public maxD: string = "1";
+  public allowDrift: boolean = true;
+  public allowMean: boolean = true;
+  public stepwiseSelection: boolean = true;
+  public boxCoxTransform: string = "off";
+  public lambda: number = 0.1;
+}
 
-  }
-  export class SettingsSeasonalityParams {
-    public show: boolean = true;
-    public targetSeason: string = "automatic";
-    public knownFrequency: number = 12;
-  }
-  export class SettingModelParams {
-    public maxp: string = "3";
-    public maxq: string = "3";
-    public maxP: string = "2";
-    public maxQ: string = "2";
-    public maxd: string = "2";
-    public maxD: string = "1";
-    public allowDrift: boolean = true;
-    public allowMean: boolean = true;
-    public stepwiseSelection: boolean = true;
-    public boxCoxTransform: string = "off";
-    public lambda: number = 0.1;
-  }
-  export class SettingsUserModelParams {
-    public show: boolean = false;
-    public p: string = "1";
-    public q: string = "1";
-    public P: string = "1";
-    public Q: string = "1";
-    public d: string = "1";
-    public D: string = "0";
-  }
-  export class SettingsGraphParams {
-    public dataCol: string = "blue";
-    public forecastCol: string = "orange";
-    public percentile: number = 40;
-    public weight: number = 10;
-  }
-  export class SettingsAdditionalParams {
-    public show: boolean = true;
-    public textSize: number = 12;
-    public textColor: string = "brown";
-    public infoCriteria: string = "none";
-  }
-  export class SettingsExportParams {
-    public show: boolean = false;
-    public limitExportSize: string = "10000";
-    public method: string = "copy";
-  }
+export class SettingsUserModelParams {
+  public show: boolean = false;
+  public p: string = "1";
+  public q: string = "1";
+  public P: string = "1";
+  public Q: string = "1";
+  public d: string = "1";
+  public D: string = "0";
+}
+
+export class SettingsGraphParams {
+  public dataCol: string = "blue";
+  public forecastCol: string = "orange";
+  public percentile: number = 40;
+  public weight: number = 10;
+}
+
+export class SettingsAdditionalParams {
+  public show: boolean = true;
+  public textSize: number = 12;
+  public textColor: string = "brown";
+  public infoCriteria: string = "none";
+}
+
+export class SettingsExportParams {
+  public show: boolean = false;
+  public limitExportSize: string = "10000";
+  public method: string = "copy";
 }

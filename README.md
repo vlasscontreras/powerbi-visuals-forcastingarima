@@ -1,20 +1,87 @@
-# powerbi-visuals-forcastingarima
-An R-powered custom visual implementing Auto-regressive Integrated Moving Average (ARIMA) modeling for the forecasting. Time series forecasting is the use of a model to predict future values based on previously observed values.
+# PowerBI Visuals - Forecasting with ARIMA
 
-![Forcastingarima screenshot](https://az158878.vo.msecnd.net/marketing/Partner_21474836617/Product_42949680843/Asset_6f782105-4545-45bc-a8d0-8134edae8251/ForecastingARIMAscreenshot3.png)
-# Overview
-Use forecasting today to optimize for tomorrow! Time series forecasting is the use of a model to predict future values based on previously observed values.
+## Overview
+Time series forecasting using the well-known Autoregressive Integrated Moving Average (ARIMA) method. This PowerBI visual supports both seasonal and non-seasonal modeling with customizable algorithm parameters and visual attributes.
 
-It is one of the prime tools of any buisness analyst used to predict demand and inventory, budgeting, sales quotas, marketing campaigns and procurement. Accurate forecasts lead to better decisions. Current visual implements well known Autoregressive Integrated Moving Average (ARIMA) method for the forecasting. ARIMA models are general class of models for forecasting a time series which can be made to be “stationary”. While exponential smoothing models are based on a description of trend and seasonality in the data, ARIMA models aim to describe the autocorrelations in the data. Both seasonal and non-seasonal modeling is supported. You can control the algorithm parameters and the visual attributes to suit your needs.
+## Recent Updates (v2.0.0)
 
-Highlighted features:
-* The underlying algorithm requires the input data to be equally spaced time series
-* Seasonal factor can be found automatically or set by user
-* By default, algorithm will optimize for all the parameters of the model based on certain information criteria
-* Advanced user can control all the inner parameters of the model
+### ✅ **Modernized Technology Stack**
+- **TypeScript**: Updated to v5.8.3 with ES2020 target
+- **R**: Updated for compatibility with R 4.5.x, 4.4.x, 4.3.x
+- **PowerBI Tools**: Updated to v6.1.3 with API version 5.3.0
+- **Linting**: Migrated from deprecated TSLint to ESLint
 
-R package dependencies(auto-installed): proto, zoo
+### ✅ **Updated Dependencies**
+- **R Packages**: Updated to latest versions
+  - forecast, zoo, scales, ggplot2, plotly, caTools
+  - reshape2, htmlWidgets, XML
+- **Build Tools**: Modern TypeScript compiler with strict mode
+- **Code Quality**: ESLint with TypeScript support
 
-Supports R versions: R 3.3.1, R 3.3.0, MRO 3.3.1, MRO 3.3.0, MRO 3.2.2
+### ✅ **Enhanced Configuration**
+- Modern tsconfig.json with strict type checking
+- Updated pbiviz.json with latest PowerBI API
+- Streamlined dependency management
 
-See also [Forecasting with ARIMA at Microsoft Office store](https://store.office.com/en-us/app.aspx?assetid=WA104380888&sourcecorrid=6259fbcf-da18-4836-b71f-ca54063847df&searchapppos=0&ui=en-US&rs=en-US&ad=US&appredirect=false)
+## Requirements
+
+### Desktop Prerequisites
+To run R scripts in Power BI Desktop, you must separately install R on your local computer.
+- Download R from [Revolution Open](https://mran.revolutionanalytics.com/download/)
+- Or from [CRAN Repository](https://cran.r-project.org/bin/windows/base/)
+
+### Supported R Versions
+- R 4.5.x ✅ (Latest)
+- R 4.4.x ✅
+- R 4.3.x ✅
+
+### R Package Dependencies (Auto-installed)
+- zoo - Time series infrastructure
+- scales - Scale functions for visualization
+- forecast - Forecasting functions for time series
+- reshape2 - Data reshaping
+- plotly - Interactive web graphics
+- htmlWidgets - HTML widgets framework
+- XML - XML tools
+- caTools - Moving window statistics and more
+
+## Features
+- **Seasonal and Non-seasonal ARIMA modeling**
+- **Interactive parameter controls**
+- **Customizable visual attributes**
+- **Confidence intervals**
+- **Forecasting periods configuration**
+- **Modern responsive design**
+
+## Development
+
+### Build Commands
+```bash
+# Install dependencies
+npm install
+
+# Build the visual
+npm run build
+
+# Start development server
+npm start
+
+# Run linting
+npm run lint
+```
+
+### Version History
+- **v2.0.0**: Modernized with TypeScript 5.8.3, R 4.5.x support, PowerBI API 5.3.0
+- **v1.2.1**: Legacy version with R 3.x support
+
+## Support
+- **Service**: R-powered custom visual works seamlessly in PowerBI Service
+- **Community**: [PowerBI Community](http://community.powerbi.com/)
+- **GitHub**: [Project Repository](https://github.com/Microsoft/powerbi-visuals-forcastingarima)
+
+## License
+Microsoft © 2025
+
+---
+
+**Note**: This visual has been updated to use the latest TypeScript and R versions. The main forecasting functionality remains in the R script component, ensuring compatibility with modern R environments while providing a modernized development experience.
