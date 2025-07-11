@@ -3,15 +3,41 @@
     "allowJs": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "ES5",
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ES2020",
+    "moduleResolution": "node",
     "sourceMap": true,
-    "out": "./.tmp/build/visual.js"
+    "outDir": "./.tmp/build/",
+    "rootDir": "./",
+    "declaration": true,
+    "declarationMap": true,
+    "strict": false,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    "strictFunctionTypes": false,
+    "noImplicitReturns": false,
+    "noImplicitThis": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
   },
+  "include": [
+    "src/**/*",
+    ".tmp/precompile/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    ".tmp/drop",
+    "dist"
+  ],
   "files": [
-    ".api/v1.11.0/PowerBI-visuals.d.ts",
-    "src/htmlInjectionUtility.ts",
-    "node_modules/powerbi-visuals-utils-dataviewutils/lib/index.d.ts",
+    "src/visual.ts",
     "src/settings.ts",
-    "src/visual.ts"
+    "src/htmlInjectionUtility.ts"
   ]
 }

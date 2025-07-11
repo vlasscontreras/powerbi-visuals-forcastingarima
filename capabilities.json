@@ -1,4 +1,13 @@
 {
+  "privileges": [
+    {
+      "name": "WebAccess",
+      "essential": true,
+      "parameters": [
+        "*"
+      ]
+    }
+  ],
   "dataRoles": [
     {
       "displayName": "Date",

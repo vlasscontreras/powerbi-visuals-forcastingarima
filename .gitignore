@@ -34,3 +34,5 @@ dist/
 dist/*
 *.pbiviz 
 
+
+.DS_Store
